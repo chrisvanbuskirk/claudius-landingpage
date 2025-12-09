@@ -86,15 +86,28 @@ function App() {
 
       {/* Screenshot Section */}
       <section className="relative z-10 pb-20 px-6">
-        <div className="max-w-5xl mx-auto">
-          <div className="glass-card rounded-2xl p-2 glow-purple">
-            <div className="bg-gray-800 rounded-xl overflow-hidden">
-              <img
-                src="/screenshots/home.png"
-                alt="Claudius App - Daily briefings view showing personalized research cards"
-                className="w-full h-auto"
-              />
-            </div>
+        <div className="max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-6">
+            <ScreenshotCard
+              src="/screenshots/home.png"
+              alt="Daily Briefings"
+              label="Daily Briefings"
+            />
+            <ScreenshotCard
+              src="/screenshots/topics.png"
+              alt="Topic Management"
+              label="Topic Management"
+            />
+            <ScreenshotCard
+              src="/screenshots/research_settings.png"
+              alt="Research Settings"
+              label="Research Settings"
+            />
+            <ScreenshotCard
+              src="/screenshots/mcps.png"
+              alt="MCP Servers"
+              label="MCP Servers"
+            />
           </div>
         </div>
       </section>
@@ -315,6 +328,17 @@ function DownloadButton({ href, icon, platform, subtitle }: { href: string; icon
       <div className="text-white font-semibold">{platform}</div>
       <div className="text-gray-500 text-xs">{subtitle}</div>
     </a>
+  );
+}
+
+function ScreenshotCard({ src, alt, label }: { src: string; alt: string; label: string }) {
+  return (
+    <div className="glass-card glass-card-hover rounded-xl p-2 transition-all duration-300">
+      <div className="bg-gray-800 rounded-lg overflow-hidden">
+        <img src={src} alt={alt} className="w-full h-auto" />
+      </div>
+      <p className="text-center text-gray-400 text-sm mt-3 mb-1">{label}</p>
+    </div>
   );
 }
 
