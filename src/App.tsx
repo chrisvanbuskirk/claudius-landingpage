@@ -89,13 +89,11 @@ function App() {
         <div className="max-w-5xl mx-auto">
           <div className="glass-card rounded-2xl p-2 glow-purple">
             <div className="bg-gray-800 rounded-xl overflow-hidden">
-              {/* Placeholder for screenshot */}
-              <div className="aspect-video bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center">
-                <div className="text-center text-gray-500">
-                  <Monitor className="w-16 h-16 mx-auto mb-4 opacity-50" />
-                  <p className="text-lg">App Screenshot Coming Soon</p>
-                </div>
-              </div>
+              <img
+                src="/screenshots/home.png"
+                alt="Claudius App - Daily briefings view showing personalized research cards"
+                className="w-full h-auto"
+              />
             </div>
           </div>
         </div>
