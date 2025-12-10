@@ -60,10 +60,10 @@ function App() {
             </div>
           </div>
 
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6">
+          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold mb-6">
             <span className="text-white">Your Personal</span>
             <br />
-            <span className="gradient-text">AI Research Assistant</span>
+            <span className="gradient-text inline-block">AI Research Agent</span>
           </h1>
 
           <p className="text-xl text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed">
