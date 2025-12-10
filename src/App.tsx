@@ -1,10 +1,10 @@
-import { Sparkles, Download, Github, Apple, Monitor, Cpu, Bell, Search, Calendar, Zap, ExternalLink } from 'lucide-react';
+import { Sparkles, Download, Github, Apple, Monitor, Cpu, Bell, Search, Terminal, Zap, ExternalLink } from 'lucide-react';
 
 const GITHUB_REPO = 'https://github.com/chrisvanbuskirk/claudius';
 const RELEASE_URL = 'https://github.com/chrisvanbuskirk/claudius/releases/latest';
-const MAC_DMG_URL = 'https://github.com/chrisvanbuskirk/claudius/releases/latest/download/Claudius_0.2.1_universal.dmg';
-const WINDOWS_URL = 'https://github.com/chrisvanbuskirk/claudius/releases/latest/download/Claudius_0.2.1_x64-setup.exe';
-const LINUX_URL = 'https://github.com/chrisvanbuskirk/claudius/releases/latest/download/Claudius_0.2.1_amd64.AppImage';
+const MAC_DMG_URL = 'https://github.com/chrisvanbuskirk/claudius/releases/latest/download/Claudius_0.3.0_aarch64.dmg';
+const WINDOWS_URL = 'https://github.com/chrisvanbuskirk/claudius/releases/latest/download/Claudius_0.3.0_x64-setup.exe';
+const LINUX_URL = 'https://github.com/chrisvanbuskirk/claudius/releases/latest/download/Claudius_0.3.0_amd64.AppImage';
 
 function App() {
   return (
@@ -138,9 +138,9 @@ function App() {
               description="Claude searches the web using built-in tools to find the latest information on your topics."
             />
             <FeatureCard
-              icon={<Calendar className="w-6 h-6" />}
-              title="Scheduled Briefings"
-              description="Set your preferred time and get fresh research delivered automatically every day."
+              icon={<Terminal className="w-6 h-6" />}
+              title="CLI & Automation"
+              description="Full command-line interface included. Schedule daily briefings with cron or launchd."
             />
             <FeatureCard
               icon={<Bell className="w-6 h-6" />}
@@ -183,8 +183,8 @@ function App() {
             />
             <Step
               number="2"
-              title="Set Your Schedule"
-              description="Choose when you want your daily briefings. Morning coffee companion or evening catch-up."
+              title="Automate with CLI"
+              description="Use the CLI with cron or launchd to schedule daily briefings. Or run research on-demand."
             />
             <Step
               number="3"
@@ -210,7 +210,7 @@ function App() {
               href={MAC_DMG_URL}
               icon={<Apple className="w-6 h-6" />}
               platform="macOS"
-              subtitle="Universal (Intel + Apple Silicon)"
+              subtitle="Apple Silicon (M1/M2/M3)"
             />
             <DownloadButton
               href={WINDOWS_URL}
@@ -264,7 +264,7 @@ function App() {
             <div className="w-8 h-8 bg-gradient-to-br from-primary-500 to-primary-700 rounded-lg flex items-center justify-center">
               <Sparkles className="w-4 h-4 text-white" />
             </div>
-            <span className="text-gray-400">Claudius v0.2.1</span>
+            <span className="text-gray-400">Claudius v0.3.0</span>
           </div>
           <div className="flex items-center gap-6">
             <a
