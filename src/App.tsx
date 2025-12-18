@@ -1,10 +1,10 @@
-import { Sparkles, Download, Github, Apple, Monitor, Cpu, Bell, Search, Terminal, ExternalLink, RefreshCw } from 'lucide-react';
+import { Sparkles, Download, Github, Apple, Monitor, Cpu, Bell, Search, Terminal, ExternalLink, RefreshCw, MessageCircle, Bookmark, Trash2 } from 'lucide-react';
 
 const GITHUB_REPO = 'https://github.com/chrisvanbuskirk/claudius';
 const RELEASE_URL = 'https://github.com/chrisvanbuskirk/claudius/releases/latest';
-const MAC_DMG_URL = 'https://github.com/chrisvanbuskirk/claudius/releases/latest/download/Claudius_0.3.2_aarch64.dmg';
-const WINDOWS_URL = 'https://github.com/chrisvanbuskirk/claudius/releases/latest/download/Claudius_0.3.2_x64-setup.exe';
-const LINUX_URL = 'https://github.com/chrisvanbuskirk/claudius/releases/latest/download/Claudius_0.3.2_amd64.AppImage';
+const MAC_DMG_URL = 'https://github.com/chrisvanbuskirk/claudius/releases/latest/download/Claudius_0.4.0_aarch64.dmg';
+const WINDOWS_URL = 'https://github.com/chrisvanbuskirk/claudius/releases/latest/download/Claudius_0.4.0_x64-setup.exe';
+const LINUX_URL = 'https://github.com/chrisvanbuskirk/claudius/releases/latest/download/Claudius_0.4.0_amd64.AppImage';
 
 function App() {
   return (
@@ -132,6 +132,24 @@ function App() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <FeatureCard
+              icon={<MessageCircle className="w-6 h-6" />}
+              title="Chat with Claude"
+              description="Ask follow-up questions on any briefing card. Claude uses web search and tools to give you deeper insights."
+              isNew
+            />
+            <FeatureCard
+              icon={<Bookmark className="w-6 h-6" />}
+              title="Bookmarks"
+              description="Save important briefings for later. Bookmarked cards are protected from automatic cleanup."
+              isNew
+            />
+            <FeatureCard
+              icon={<Trash2 className="w-6 h-6" />}
+              title="Storage Management"
+              description="Configure retention periods and automatic cleanup. Keep your database tidy without losing what matters."
+              isNew
+            />
             <FeatureCard
               icon={<Search className="w-6 h-6" />}
               title="Real-Time Web Search"
@@ -264,7 +282,7 @@ function App() {
             <div className="w-8 h-8 bg-gradient-to-br from-primary-500 to-primary-700 rounded-lg flex items-center justify-center">
               <Sparkles className="w-4 h-4 text-white" />
             </div>
-            <span className="text-gray-400">Claudius v0.3.2</span>
+            <span className="text-gray-400">Claudius v0.4.0</span>
           </div>
           <div className="flex items-center gap-6">
             <a
@@ -298,9 +316,14 @@ function App() {
   );
 }
 
-function FeatureCard({ icon, title, description }: { icon: React.ReactNode; title: string; description: string }) {
+function FeatureCard({ icon, title, description, isNew }: { icon: React.ReactNode; title: string; description: string; isNew?: boolean }) {
   return (
-    <div className="glass-card glass-card-hover rounded-xl p-6 transition-all duration-300">
+    <div className="glass-card glass-card-hover rounded-xl p-6 transition-all duration-300 relative">
+      {isNew && (
+        <span className="absolute top-4 right-4 px-2 py-0.5 text-xs font-semibold bg-green-500/20 text-green-400 rounded-full border border-green-500/30">
+          NEW
+        </span>
+      )}
       <div className="w-12 h-12 bg-primary-500/10 rounded-xl flex items-center justify-center text-primary-400 mb-4">
         {icon}
       </div>
