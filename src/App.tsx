@@ -168,7 +168,7 @@ function App() {
             <FeatureCard
               icon={<Cpu className="w-6 h-6" />}
               title="MCP Integration"
-              description="Connect to external tools via MCP servers for enhanced research capabilities."
+              description="Connect to Brave Search, Perplexity, GitHub, Fetch, and Memory servers for real-time web search, persistent context, and enhanced research."
             />
             <FeatureCard
               icon={<RefreshCw className="w-6 h-6" />}
