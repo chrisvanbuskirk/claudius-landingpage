@@ -1,10 +1,10 @@
-import { Sparkles, Download, Github, Apple, Monitor, Cpu, Bell, Search, Terminal, ExternalLink, RefreshCw, MessageCircle, Bookmark, Trash2 } from 'lucide-react';
+import { Sparkles, Download, Github, Apple, Monitor, Cpu, Bell, Search, Terminal, ExternalLink, RefreshCw, MessageCircle, Bookmark, Trash2, Image, Layers, Flame } from 'lucide-react';
 
 const GITHUB_REPO = 'https://github.com/chrisvanbuskirk/claudius';
 const RELEASE_URL = 'https://github.com/chrisvanbuskirk/claudius/releases/latest';
-const MAC_DMG_URL = 'https://github.com/chrisvanbuskirk/claudius/releases/latest/download/Claudius_0.4.1_aarch64.dmg';
-const WINDOWS_URL = 'https://github.com/chrisvanbuskirk/claudius/releases/latest/download/Claudius_0.4.1_x64-setup.exe';
-const LINUX_URL = 'https://github.com/chrisvanbuskirk/claudius/releases/latest/download/Claudius_0.4.1_amd64.AppImage';
+const MAC_DMG_URL = 'https://github.com/chrisvanbuskirk/claudius/releases/latest/download/Claudius_0.5.0_aarch64.dmg';
+const WINDOWS_URL = 'https://github.com/chrisvanbuskirk/claudius/releases/latest/download/Claudius_0.5.0_x64-setup.exe';
+const LINUX_URL = 'https://github.com/chrisvanbuskirk/claudius/releases/latest/download/Claudius_0.5.0_amd64.AppImage';
 
 function App() {
   return (
@@ -93,26 +93,36 @@ function App() {
       {/* Screenshot Section */}
       <section className="relative z-10 pb-20 px-6">
         <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             <ScreenshotCard
-              src="/screenshots/home.png"
+              src="/screenshots/home.jpg"
               alt="Daily Briefings"
-              label="Daily Briefings"
+              label="Daily Briefings with AI-Generated Images"
             />
             <ScreenshotCard
-              src="/screenshots/topics.png"
+              src="/screenshots/topic.jpg"
               alt="Topic Management"
               label="Topic Management"
             />
             <ScreenshotCard
-              src="/screenshots/research_settings.png"
+              src="/screenshots/research.jpg"
               alt="Research Settings"
-              label="Research Settings"
+              label="Research Modes & Settings"
             />
             <ScreenshotCard
-              src="/screenshots/mcps.png"
+              src="/screenshots/mcps.jpg"
               alt="MCP Servers"
-              label="MCP Servers"
+              label="MCP Server Configuration"
+            />
+            <ScreenshotCard
+              src="/screenshots/chat.jpg"
+              alt="Chat with Claude"
+              label="Chat with Claude about Cards"
+            />
+            <ScreenshotCard
+              src="/screenshots/bookmarks.jpg"
+              alt="Bookmarks"
+              label="Save & Organize Bookmarks"
             />
           </div>
         </div>
@@ -133,22 +143,37 @@ function App() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             <FeatureCard
+              icon={<Flame className="w-6 h-6" />}
+              title="Research Modes"
+              description="Choose Standard mode (Brave/Perplexity search) or Deep Research mode (Firecrawl) for comprehensive web extraction and analysis."
+              isNew
+            />
+            <FeatureCard
+              icon={<Image className="w-6 h-6" />}
+              title="AI-Generated Images"
+              description="DALL-E creates beautiful header images for each briefing card. Bring your research to life visually."
+              isNew
+            />
+            <FeatureCard
+              icon={<Layers className="w-6 h-6" />}
+              title="Condensed Briefings"
+              description="Combine all topics into a single comprehensive card with cross-topic analysis and unified insights."
+              isNew
+            />
+            <FeatureCard
               icon={<MessageCircle className="w-6 h-6" />}
               title="Chat with Claude"
               description="Ask follow-up questions on any briefing card. Claude uses web search and tools to give you deeper insights."
-              isNew
             />
             <FeatureCard
               icon={<Bookmark className="w-6 h-6" />}
               title="Bookmarks"
               description="Save important briefings for later. Bookmarked cards are protected from automatic cleanup."
-              isNew
             />
             <FeatureCard
               icon={<Trash2 className="w-6 h-6" />}
               title="Storage Management"
               description="Configure retention periods and automatic cleanup. Keep your database tidy without losing what matters."
-              isNew
             />
             <FeatureCard
               icon={<Search className="w-6 h-6" />}
@@ -168,7 +193,7 @@ function App() {
             <FeatureCard
               icon={<Cpu className="w-6 h-6" />}
               title="MCP Integration"
-              description="Connect to Brave Search, Perplexity, GitHub, Fetch, and Memory servers for real-time web search, persistent context, and enhanced research."
+              description="Connect to Brave Search, Perplexity, Firecrawl, GitHub, and Memory servers for enhanced research capabilities."
             />
             <FeatureCard
               icon={<RefreshCw className="w-6 h-6" />}
@@ -177,8 +202,9 @@ function App() {
             />
             <FeatureCard
               icon={<Sparkles className="w-6 h-6" />}
-              title="Personalized Topics"
-              description="Configure exactly what you want to learn about. Add, edit, or disable topics anytime."
+              title="Smart Deduplication"
+              description="Automatically avoids repetitive briefings by comparing against recent content. Fresh insights every day."
+              isNew
             />
           </div>
         </div>
@@ -256,6 +282,42 @@ function App() {
         </div>
       </section>
 
+      {/* DIY / Self-Hosted Section */}
+      <section className="relative z-10 py-20 px-6">
+        <div className="max-w-4xl mx-auto">
+          <div className="glass-card rounded-xl p-8">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-10 h-10 bg-green-500/10 rounded-xl flex items-center justify-center text-green-400">
+                <Terminal className="w-5 h-5" />
+              </div>
+              <h3 className="text-2xl font-bold text-white">DIY & Self-Hosted</h3>
+            </div>
+            <p className="text-gray-400 mb-6 leading-relaxed">
+              Claudius is fully self-contained. No cloud services, no subscriptions, no data leaving your machine
+              (except API calls you control). Your research topics, briefings, and preferences stay local in SQLite.
+            </p>
+            <div className="grid sm:grid-cols-2 gap-4 text-sm">
+              <div className="flex items-start gap-3">
+                <span className="text-green-400 mt-0.5">✓</span>
+                <span className="text-gray-300">100% local storage - your data stays on your machine</span>
+              </div>
+              <div className="flex items-start gap-3">
+                <span className="text-green-400 mt-0.5">✓</span>
+                <span className="text-gray-300">Bring your own API keys - full control over costs</span>
+              </div>
+              <div className="flex items-start gap-3">
+                <span className="text-green-400 mt-0.5">✓</span>
+                <span className="text-gray-300">Open source - audit, modify, contribute</span>
+              </div>
+              <div className="flex items-start gap-3">
+                <span className="text-green-400 mt-0.5">✓</span>
+                <span className="text-gray-300">CLI included - automate with cron or launchd</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Requirements */}
       <section className="relative z-10 py-12 px-6 bg-white/[0.02]">
         <div className="max-w-4xl mx-auto">
@@ -263,11 +325,15 @@ function App() {
             <h3 className="text-lg font-semibold text-white mb-4">Requirements</h3>
             <ul className="space-y-2 text-gray-400">
               <li className="flex items-start gap-2">
-                <span className="text-primary-400 mt-1">*</span>
-                <span><strong>Anthropic API Key</strong> - You'll need your own API key from <a href="https://console.anthropic.com" target="_blank" rel="noopener noreferrer" className="text-primary-400 hover:underline">console.anthropic.com</a></span>
+                <span className="text-primary-400 mt-1">•</span>
+                <span><strong>Anthropic API Key</strong> - Required. Get yours from <a href="https://console.anthropic.com" target="_blank" rel="noopener noreferrer" className="text-primary-400 hover:underline">console.anthropic.com</a></span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-primary-400 mt-1">*</span>
+                <span className="text-primary-400 mt-1">•</span>
+                <span><strong>OpenAI API Key</strong> - Optional. For DALL-E image generation.</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-primary-400 mt-1">•</span>
                 <span>macOS 11+, Windows 10+, or Linux with GTK3</span>
               </li>
             </ul>
@@ -282,7 +348,7 @@ function App() {
             <div className="w-8 h-8 bg-gradient-to-br from-primary-500 to-primary-700 rounded-lg flex items-center justify-center">
               <Sparkles className="w-4 h-4 text-white" />
             </div>
-            <span className="text-gray-400">Claudius v0.4.1</span>
+            <span className="text-gray-400">Claudius v0.5.0</span>
           </div>
           <div className="flex items-center gap-6">
             <a
