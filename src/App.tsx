@@ -2,9 +2,9 @@ import { Sparkles, Download, Github, Apple, Monitor, Cpu, Bell, Search, Terminal
 
 const GITHUB_REPO = 'https://github.com/chrisvanbuskirk/claudius';
 const RELEASE_URL = 'https://github.com/chrisvanbuskirk/claudius/releases/latest';
-const MAC_DMG_URL = 'https://github.com/chrisvanbuskirk/claudius/releases/latest/download/Claudius_0.5.2_aarch64.dmg';
-const WINDOWS_URL = 'https://github.com/chrisvanbuskirk/claudius/releases/latest/download/Claudius_0.5.2_x64-setup.exe';
-const LINUX_URL = 'https://github.com/chrisvanbuskirk/claudius/releases/latest/download/Claudius_0.5.2_amd64.AppImage';
+const MAC_DMG_URL = 'https://github.com/chrisvanbuskirk/claudius/releases/latest/download/Claudius_0.5.3_aarch64.dmg';
+const WINDOWS_URL = 'https://github.com/chrisvanbuskirk/claudius/releases/latest/download/Claudius_0.5.3_x64-setup.exe';
+const LINUX_URL = 'https://github.com/chrisvanbuskirk/claudius/releases/latest/download/Claudius_0.5.3_amd64.AppImage';
 
 function App() {
   return (
@@ -348,7 +348,7 @@ function App() {
             <div className="w-8 h-8 bg-gradient-to-br from-primary-500 to-primary-700 rounded-lg flex items-center justify-center">
               <Sparkles className="w-4 h-4 text-white" />
             </div>
-            <span className="text-gray-400">Claudius v0.5.2</span>
+            <span className="text-gray-400">Claudius v0.5.3</span>
           </div>
           <div className="flex items-center gap-6">
             <a
