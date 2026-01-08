@@ -65,8 +65,10 @@
   }
 
   .gradient-text {
-    @apply bg-clip-text text-transparent;
-    @apply bg-gradient-to-r from-primary-400 via-purple-400 to-primary-400;
+    background: linear-gradient(to right, #38bdf8, #a855f7, #38bdf8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 }
 
